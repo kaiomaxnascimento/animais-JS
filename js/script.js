@@ -1,5 +1,4 @@
 import ScrollSuave from "./modules/scroll-suave.js";
-import initAnimationScroll from "./modules/scroll-animacao.js";
 import initFaqAnimation from "./modules/accordion.js";
 import initTabNav from "./modules/tab-content.js";
 import initModal from "./modules/modal.js";
@@ -9,11 +8,11 @@ import initMenuMobile from "./modules/menu-mobile.js";
 import initFuncionamento from "./modules/funcionamento.js";
 import initFetchAnimais from "./modules/fetch-animais.js";
 import initFetchBtc from "./modules/fetch-btc.js";
+import initAnimationScroll from "./modules/scroll-animacao.js";
 
 const scrollSuave = new ScrollSuave('[data-menu="suave"] a[href^="#"]');
 scrollSuave.init();
 
-initAnimationScroll();
 initFaqAnimation();
 initTabNav();
 initModal();
@@ -23,6 +22,7 @@ initMenuMobile();
 initFuncionamento();
 initFetchAnimais();
 initFetchBtc();
+initAnimationScroll();
 //ativar e desativar classe ativo ao click dos links internos
 // function atvLinks() {
 //   const linksInternos = document.querySelectorAll('a[href^="#"]');
