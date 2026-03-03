@@ -10,7 +10,7 @@ export default class ScrollSuave {
     } else {
       this.options = options;
     }
-    //sempre o this vai fazer referencia ao this.scrollToSection
+    //sempre o this.scrollToSection vai fazer referencia ao this.scrollToSection
     this.scrollToSection = this.scrollToSection.bind(this);
   }
   scrollToSection(event) {
