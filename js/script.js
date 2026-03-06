@@ -6,7 +6,7 @@ import Tooltip from "./modules/tooltip.js";
 import initDropDown from "./modules/dropdown-menu.js";
 import initMenuMobile from "./modules/menu-mobile.js";
 import initFuncionamento from "./modules/funcionamento.js";
-import initFetchAnimais from "./modules/fetch-animais.js";
+import fetchAnimais from "./modules/fetch-animais.js";
 import initFetchBtc from "./modules/fetch-btc.js";
 import initAnimationScroll from "./modules/scroll-animacao.js";
 
@@ -35,9 +35,11 @@ toolTip.init();
 initDropDown();
 initMenuMobile();
 initFuncionamento();
-initFetchAnimais();
 initFetchBtc();
 initAnimationScroll();
+
+fetchAnimais("./animaisapi.json", ".numeros-grid");
+
 //ativar e desativar classe ativo ao click dos links internos
 // function atvLinks() {
 //   const linksInternos = document.querySelectorAll('a[href^="#"]');
