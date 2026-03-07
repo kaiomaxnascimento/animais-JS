@@ -1,19 +1,38 @@
 //importei a funcao outside que fecha o menu ao clickar fora do elemento
 import outsideClick from "./outside-click.js";
 
-export default function initMenuMobile() {}
+export default class MenuMobile {
+  constructor(menuButton, menuList, events) {
+    this.menuButton = document.querySelector(menuButton);
+    this.menuList = document.querySelector(menuList);
+    this.activeClass = "active";
+    //se no segundo parametro não definir nada
+    //por padrão sera: ["touchstart", "click"]
+    if (events === undefined) this.events = ["touchstart", "click"];
+    else this.events = events;
 
-const menuButton = document.querySelector('[data-menu="button"]');
-const menuList = document.querySelector('[data-menu="list"]');
-const eventos = ["click", "touchstart"];
+    this.openMenu = this.openMenu.bind(this);
+  }
 
-function openMenu() {
-  menuButton.classList.add("active");
-  menuList.classList.add("active");
-  outsideClick(menuList, eventos, () => {
-    menuButton.classList.remove("active");
-    menuList.classList.remove("active");
-  });
+  openMenu() {
+    this.menuButton.classList.add(this.activeClass);
+    this.menuList.classList.add(this.activeClass);
+    outsideClick(this.menuList, this.events, () => {
+      this.menuButton.classList.remove(this.activeClass);
+      this.menuList.classList.remove(this.activeClass);
+    });
+  }
+
+  addMenuMobileEvents() {
+    this.events.forEach((event) =>
+      this.menuButton.addEventListener(event, this.openMenu),
+    );
+  }
+
+  init() {
+    if (this.menuButton && this.menuList) {
+      this.addMenuMobileEvents();
+    }
+    return this;
+  }
 }
-
-eventos.forEach((event) => menuButton.addEventListener(event, openMenu));
