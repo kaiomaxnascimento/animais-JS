@@ -7,7 +7,7 @@ import initDropDown from "./modules/dropdown-menu.js";
 import initMenuMobile from "./modules/menu-mobile.js";
 import initFuncionamento from "./modules/funcionamento.js";
 import fetchAnimais from "./modules/fetch-animais.js";
-import initFetchBtc from "./modules/fetch-btc.js";
+import fetchBtc from "./modules/fetch-btc.js";
 import initAnimationScroll from "./modules/scroll-animacao.js";
 
 const scrollSuave = new ScrollSuave('[data-menu="suave"] a[href^="#"]');
@@ -35,12 +35,12 @@ toolTip.init();
 initDropDown();
 initMenuMobile();
 initFuncionamento();
-initFetchBtc();
 initAnimationScroll();
 
 fetchAnimais("./animaisapi.json", ".numeros-grid");
+fetchBtc("https://blockchain.info/ticker", ".btc-preco");
 
-//ativar e desativar classe ativo ao click dos links internos
+//ativar e desativar classe 'ativo' ao click dos links internos
 // function atvLinks() {
 //   const linksInternos = document.querySelectorAll('a[href^="#"]');
 //   function ativo(event) {
