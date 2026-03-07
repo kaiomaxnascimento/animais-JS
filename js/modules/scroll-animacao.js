@@ -1,4 +1,5 @@
 //conteudo fica invisivel até dar scroll ao local e ser revelado
+import debounce from "./debounce.js";
 export default class ScrollAnima {
   constructor(sectionScroll) {
     //seleciona todos os locais de interação
@@ -7,7 +8,7 @@ export default class ScrollAnima {
     this.windowMetade = window.innerHeight * 0.7;
     //o this sempre vai fazer referência ao objeto definido
     //pois perdem a referência qnd adiciona um evento
-    this.checkDistance = this.checkDistance.bind(this);
+    this.checkDistance = debounce(this.checkDistance.bind(this), 50);
   }
 
   getDistance() {
