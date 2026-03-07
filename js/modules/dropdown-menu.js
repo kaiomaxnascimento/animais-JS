@@ -12,7 +12,7 @@ export default class DropdownMenu {
 
     this.activeClass = "active";
     //o this sempre vai fazer referência ao objeto definido
-    //pois perdem a referência qnd adiciona um evento
+    //pois perdem a referência quando adiciona um evento
     this.activeDropdownMenu = this.activeDropdownMenu.bind(this);
   }
 
