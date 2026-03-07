@@ -7,7 +7,7 @@ export default class DropdownMenu {
     this.dropdownMenus = document.querySelectorAll(dropdownMenus);
     //se no segundo parametro não definir nada
     //por padrão sera: ["touchstart", "click"]
-    if (events === undefined) this.events = ["touchstart", "click"];
+    if (events === undefined) this.events = [/*"touchstart",*/ "click"];
     else this.events = events;
 
     this.activeClass = "active";
@@ -21,7 +21,7 @@ export default class DropdownMenu {
   activeDropdownMenu(event) {
     event.preventDefault();
     const element = event.currentTarget;
-    element.classList.add(this.activeClass);
+    element.classList.toggle(this.activeClass);
     outsideClick(element, this.events, () => {
       element.classList.remove(this.activeClass);
     });
