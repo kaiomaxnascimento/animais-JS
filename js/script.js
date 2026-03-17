@@ -9,6 +9,7 @@ import Funcionamento from "./modules/funcionamento.js";
 import fetchAnimais from "./modules/fetch-animais.js";
 import fetchBtc from "./modules/fetch-btc.js";
 import ScrollAnima from "./modules/scroll-animacao.js";
+import { SlideNav } from "./modules/slide.js";
 
 const scrollSuave = new ScrollSuave('[data-menu="suave"] a[href^="#"]');
 scrollSuave.init();
@@ -41,36 +42,12 @@ dropdownMenu.init();
 const menuMobile = new MenuMobile('[data-menu="button"]', '[data-menu="list"]');
 menuMobile.init();
 
-const funcionamento = new Funcionamento("[data-semana]", 'aberto');
+const funcionamento = new Funcionamento("[data-semana]", "aberto");
 funcionamento.init();
 
 fetchAnimais("./animaisapi.json", ".numeros-grid");
 fetchBtc("https://blockchain.info/ticker", ".btc-preco");
 
-//ativar e desativar classe 'ativo' ao click dos links internos
-// function atvLinks() {
-//   const linksInternos = document.querySelectorAll('a[href^="#"]');
-//   function ativo(event) {
-//     event.preventDefault();
-//     linksInternos.forEach((link) => {
-//       link.classList.remove("ativo");
-//     });
-//     event.currentTarget.classList.add("ativo");
-//   }
-//   linksInternos.forEach((linksAtivos) => {
-//     linksAtivos.addEventListener("click", ativo);
-//   });
-// }
-// atvLinks();
-
-//ao apertar T aumenta todo o texto do site
-// function initTextUp() {
-//   function handleText(event) {
-//     const textoUp = document.documentElement;
-//     if (event.key === "t") {
-//       textoUp.classList.toggle("textoUp");
-//     }
-//   }
-//   window.addEventListener("keydown", handleText);
-// }
-// initTextUp();
+const slide = new SlideNav(".slider", ".slider-wrapper");
+slide.init();
+slide.addControl(".custom-controls");
