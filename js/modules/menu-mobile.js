@@ -8,13 +8,14 @@ export default class MenuMobile {
     this.activeClass = "active";
     //se no segundo parametro não definir nada
     //por padrão sera: ["touchstart", "click"]
-    if (events === undefined) this.events = [/*"touchstart",*/ "click"];
+    if (events === undefined) this.events = ["touchstart", "click"];
     else this.events = events;
 
     this.openMenu = this.openMenu.bind(this);
   }
 
-  openMenu() {
+  openMenu(event) {
+    event.preventDefault();
     this.menuButton.classList.add(this.activeClass);
     this.menuList.classList.add(this.activeClass);
     outsideClick(this.menuList, this.events, () => {
